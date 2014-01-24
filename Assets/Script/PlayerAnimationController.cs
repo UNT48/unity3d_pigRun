@@ -22,6 +22,10 @@ public class PlayerAnimationController : MonoBehaviour {
 	// ジャンプ用フラグ.
 	private bool isJump;
 
+	private float moveForce = 365f;			// Amount of force added to move the player left and right.
+	private float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
+	private float jumpForce = 1000f;
+
 	// アニメーション状態一覧.
 	private enum animationState{
 		 Walk
@@ -56,6 +60,7 @@ public class PlayerAnimationController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// SpriteRendererの取得.
+//		spRender	= Player.transform.GetComponentInChildren<SpriteRenderer>();
 		spRender	= Player.GetComponent<SpriteRenderer>();
 		// 初期のアニメーション状態を"Walk"に設定.
 		nowAnimationState	= animationState.Walk;
@@ -68,7 +73,7 @@ public class PlayerAnimationController : MonoBehaviour {
 
 		// 地面判定.
 		isGrounded	= Physics2D.Linecast( this.transform.position, groundCheck.position, 1 << LayerMask.NameToLayer( "Ground" ) );
-
+		Debug.Log( isGrounded );
 		if( ( Input.GetMouseButtonDown(0) || Input.touchCount > 0 ) && isGrounded )
 		{
 			isJump	= true;
@@ -108,6 +113,24 @@ public class PlayerAnimationController : MonoBehaviour {
 				spRender.sprite	= PigSprite[ animNum ];
 			}
 		}
+		// Cache the horizontal input.
+		//float h = Input.GetAxis("Horizontal");
+		float h = 1;
+		
+		// The Speed animator parameter is set to the absolute value of the horizontal input.
+		//anim.SetFloat("Speed", Mathf.Abs(h));
+		
+		// If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
+		if (h * rigidbody2D.velocity.x < maxSpeed) {
+			// ... add a force to the player.
+			rigidbody2D.AddForce (Vector2.right * h * moveForce);
+		}
+		
+		// If the player's horizontal velocity is greater than the maxSpeed...
+		if (Mathf.Abs (rigidbody2D.velocity.x) > maxSpeed) {
+			// ... set the player's velocity to the maxSpeed in the x axis.
+			rigidbody2D.velocity = new Vector2 (Mathf.Sign (rigidbody2D.velocity.x) * maxSpeed, rigidbody2D.velocity.y);
+		}
 
 		if ( isJump )
 		{
@@ -115,7 +138,7 @@ public class PlayerAnimationController : MonoBehaviour {
 			animNum				= System.Convert.ToInt32( animationSeries.Jump );
 			spRender.sprite		= PigSprite[ animNum ];
 
-			rigidbody2D.AddForce( new Vector2( 0f, 500f ) );
+			rigidbody2D.AddForce( new Vector2( moveForce, jumpForce ) );
 
 			isJump				= false;
 		}

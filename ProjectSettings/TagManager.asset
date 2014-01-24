@@ -12,6 +12,13 @@ TagManager:
   - BombPickup
   - ExplosionFX
   - HealthBar
+  - Dumbbell
+  - 
+  - 
+  - 
+  - 'Dumbbel
+
+'
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -58,13 +65,13 @@ TagManager:
     userID: 2
     uniqueID: 1535931219
     locked: 0
-  - name: Character
-    userID: 4
-    uniqueID: 2511236001
-    locked: 0
   - name: Foreground
     userID: 3
     uniqueID: 1024582385
+    locked: 0
+  - name: Character
+    userID: 4
+    uniqueID: 2511236001
     locked: 0
   - name: UI
     userID: 5
