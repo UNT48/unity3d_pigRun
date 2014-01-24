@@ -24,7 +24,7 @@ public class PlayerAnimationController : MonoBehaviour {
 
 	private float moveForce = 365f;			// Amount of force added to move the player left and right.
 	private float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
-	private float jumpForce = 1000f;
+	private float jumpForce = 500f;
 
 	// アニメーション状態一覧.
 	private enum animationState{
