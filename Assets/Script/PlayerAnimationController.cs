@@ -22,9 +22,9 @@ public class PlayerAnimationController : MonoBehaviour {
 	// ジャンプ用フラグ.
 	private bool isJump;
 
-	private float moveForce = 365f;			// Amount of force added to move the player left and right.
+	private float moveForce = 500f;			// Amount of force added to move the player left and right.
 	private float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
-	private float jumpForce = 500f;
+	private float jumpForce = 1000f;
 
 	// アニメーション状態一覧.
 	private enum animationState{
@@ -129,7 +129,7 @@ public class PlayerAnimationController : MonoBehaviour {
 		// If the player's horizontal velocity is greater than the maxSpeed...
 		if (Mathf.Abs (rigidbody2D.velocity.x) > maxSpeed) {
 			// ... set the player's velocity to the maxSpeed in the x axis.
-			rigidbody2D.velocity = new Vector2 (Mathf.Sign (rigidbody2D.velocity.x) * maxSpeed, rigidbody2D.velocity.y);
+			rigidbody2D.velocity = new Vector2 (Mathf.Sign (rigidbody2D.velocity.x) * maxSpeed * 2, rigidbody2D.velocity.y);
 		}
 
 		if ( isJump )
