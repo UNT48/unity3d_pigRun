@@ -24,22 +24,28 @@ public class PlayerHealth : MonoBehaviour
 	void OnCollisionEnter2D (Collision2D col)
 	{
 		if (col.gameObject.tag == "Enemy") {
-			TakeDamage (); 
+			TakeDamage (col.gameObject, 1, 0);
 		} else if (col.gameObject.tag == "Dumbbell") {
-			TakeScore ();
+			TakeScore (col.gameObject, 1, 100);
 		}
-
-		this.UpdateHealthBar ();
 	}
 	
-	void TakeDamage ()
+	void TakeDamage (GameObject go, int helath, int score)
 	{
-		_curHealth -= damageAmount;
+		_curHealth -= helath;
+		_curScore -= score;
+
+		UpdateHealthBar ();
+		Destroy (go);
 	}
 
-	void TakeScore ()
+	void TakeScore (GameObject go, int health, int score)
 	{
-		_curScore += 100;
+		_curHealth += health;
+		_curScore += score;
+
+		UpdateHealthBar ();
+		Destroy (go);
 	}
 	 
 	public void CreateHealthBar ()
