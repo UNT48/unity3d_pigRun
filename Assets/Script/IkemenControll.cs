@@ -43,10 +43,6 @@ public class IkemenControll : MonoBehaviour
 		switch (charaNum) {
 			case 1:
 				img = (SpriteRenderer)Instantiate(Ikemen1[Random.Range(0, imgSize)], imgPos, parent.transform.rotation);
-				img.sortingLayerName = "Foreground";
-				img.sortingOrder = 1;
-				img.transform.parent = parent.transform;
-				img.name = "IkemenMsg" + charaNum;
 				break;
 			case 2:
 				img = (SpriteRenderer)Instantiate(Ikemen2[Random.Range(0, imgSize)], imgPos, this.transform.rotation);
@@ -56,6 +52,10 @@ public class IkemenControll : MonoBehaviour
 		}
 		
 		if (img != null) {
+			img.sortingLayerName = "Foreground";
+			img.sortingOrder = 1;
+			img.transform.parent = parent.transform;
+			img.name = "IkemenMsg" + charaNum;
 			Destroy(img, _delTime);
 		}
 	}
