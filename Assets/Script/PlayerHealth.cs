@@ -20,7 +20,12 @@ public class PlayerHealth : MonoBehaviour
 	
 		this.CreateHealthBar ();
 	}
-	
+
+	void FixedUpdate()
+	{
+		_curScore += 1;
+	}
+
 	void OnCollisionEnter2D (Collision2D col)
 	{
 		if (col.gameObject.tag == "Enemy") {
@@ -32,8 +37,10 @@ public class PlayerHealth : MonoBehaviour
 	
 	void TakeDamage (GameObject go, int helath, int score)
 	{
-		_curHealth -= helath;
-		_curScore -= score;
+		if (_curHealth > 0) {
+			_curHealth -= helath;
+			_curScore -= score;
+		}
 
 		UpdateHealthBar ();
 		Destroy (go);

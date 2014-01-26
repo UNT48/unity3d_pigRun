@@ -38,11 +38,11 @@ public class IkemenControll : MonoBehaviour
 		GameObject parent;
 		
 		parent = GameObject.Find("mainCamera");
-		imgPos = new Vector3 (11, 4, 0);
+		imgPos = new Vector3 (parent.transform.position.x + 11, 4, 0);
 
 		switch (charaNum) {
 			case 1:
-				img = (SpriteRenderer)Instantiate(Ikemen1[Random.Range(0, imgSize)], imgPos, parent.transform.rotation);
+				img = (SpriteRenderer)Instantiate(Ikemen1[Random.Range(0, imgSize)], imgPos, this.transform.rotation);
 				break;
 			case 2:
 				img = (SpriteRenderer)Instantiate(Ikemen2[Random.Range(0, imgSize)], imgPos, this.transform.rotation);

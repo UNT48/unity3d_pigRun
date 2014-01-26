@@ -43,6 +43,7 @@ public class PlayerControl : MonoBehaviour
 
 	void FixedUpdate ()
 	{
+/*
 		// Cache the horizontal input.
 		//float h = Input.GetAxis("Horizontal");
 		float h = 1;
@@ -86,6 +87,7 @@ public class PlayerControl : MonoBehaviour
 			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
 			jump = false;
 		}
+*/
 	}
 	
 	

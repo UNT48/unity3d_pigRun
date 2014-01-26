@@ -12,7 +12,7 @@ GameObject:
   - 61: {fileID: 6100000}
   - 114: {fileID: 11400000}
   m_Layer: 12
-  m_Name: bg_ground
+  m_Name: ground_1
   m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,14 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c764d56267c4025b032726458b6378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy:
-  - {fileID: 100002, guid: 4c5736ea0764d49c3a6adc2250d33f0f, type: 2}
-  - {fileID: 100002, guid: 66fe2da2077f94183ae003dde85a8b1a, type: 2}
-  Dumbell:
-  - {fileID: 100000, guid: 8306bfaae513e45fbac885a58078c474, type: 2}
-  Ikemen:
-  - {fileID: 100000, guid: 9c8bf0e9f928c4279a7296048e6c3dc2, type: 2}
-  - {fileID: 100000, guid: b99a52ca2679e441590844a48e8d0f26, type: 2}
+  ground:
+  - {fileID: 100000}
+  - {fileID: 100012, guid: 722224971e64c465690fefcfceca9f1c, type: 2}
+  - {fileID: 100012, guid: 05e86bbb3dd2a42cdb15836949f2e830, type: 2}
+  - {fileID: 100012, guid: bde340a61a51b47bcb482ce2e7f8a315, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

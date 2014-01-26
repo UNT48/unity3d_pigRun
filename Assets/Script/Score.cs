@@ -13,7 +13,8 @@ public class Score : MonoBehaviour
 	
 	void Update ()
 	{
-		score = _playerHealth.GetScore();
-		guiText.text = "Score: " + score;
+		score = _playerHealth.GetScore() / 100;
+
+		guiText.text = "score: " + score + " m";
 	}
 }

@@ -3,19 +3,17 @@ using System.Collections;
 
 public class GroundController : MonoBehaviour {
 
+	public GameObject[] ground;
+
 	private int _moveScale = 155;
 
-	void Start () {
-	
-	}
-
-	void Update () {
-	
-	}
-
 	void OnBecameInvisible () {
+	
 		Vector3 floor_position = this.transform.position;
 		floor_position.x += _moveScale;
-		this.transform.position = floor_position;
+
+		Instantiate (this.ground[Random.Range(0, ground.Length)], floor_position, this.transform.rotation);
+
+		Destroy (this.gameObject);
 	}
 }
