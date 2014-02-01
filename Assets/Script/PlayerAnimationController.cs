@@ -22,9 +22,9 @@ public class PlayerAnimationController : MonoBehaviour {
 	// ジャンプ用フラグ.
 	private bool isJump;
 
-	private float moveForce = 500f;			// Amount of force added to move the player left and right.
+	private float moveForce = 365f;			// Amount of force added to move the player left and right.
 	private float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
-	private float jumpForce = 1000f;
+	private float jumpForce = 500f;
 
 	// アニメーション状態一覧.
 	private enum animationState{
@@ -137,8 +137,12 @@ public class PlayerAnimationController : MonoBehaviour {
 			nowAnimationState	= animationState.Jump;
 			animNum				= System.Convert.ToInt32( animationSeries.Jump );
 			spRender.sprite		= PigSprite[ animNum ];
-
-			rigidbody2D.AddForce( new Vector2( moveForce, jumpForce ) );
+#if UNITY_EDITOR
+			rigidbody2D.AddForce( new Vector2( 0f, 1000f ) );
+#else
+			rigidbody2D.AddForce( new Vector2( 0f, jumpForce ) );
+#endif
+//			rigidbody2D.AddForce( new Vector2( moveForce, jumpForce ) );
 
 			isJump				= false;
 		}
