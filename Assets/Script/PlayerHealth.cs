@@ -41,6 +41,12 @@ public class PlayerHealth : MonoBehaviour
 			_curHealth -= helath;
 			_curScore -= score;
 		}
+		//  judge GameOver.
+		if(_curHealth == 0) {
+			score = GetScore() / 100;
+			PlayerPrefs.SetInt ("score",score);
+			Application.LoadLevel("GameOver");
+		}
 
 		UpdateHealthBar ();
 		Destroy (go);
