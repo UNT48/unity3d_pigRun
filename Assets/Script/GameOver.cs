@@ -3,20 +3,20 @@ using System.Collections;
 
 public class GameOver : MonoBehaviour {
 
+	private int score;
+
 	// Use this for initialization
 	void Start () {
-	
+		score = PlayerPrefs.GetInt ("score");
+		guiText.text = "score: " + score + " m";
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		//to Title.
 		if (Input.GetKeyDown("space")) {
 			Application.LoadLevel("Title");
 		}
 	}
-
-	/*void OnGUI() {
-		GUI.Label(new Rect(0,0,100,20),"タイトル");
-	}*/
 
 }
