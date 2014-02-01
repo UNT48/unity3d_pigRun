@@ -54,7 +54,10 @@ public class PlayerHealth : MonoBehaviour
 
 	void TakeScore (GameObject go, int health, int score)
 	{
-		_curHealth += health;
+		if (_curHealth < 3) {
+			_curHealth += health;
+		}
+
 		_curScore += score;
 
 		UpdateHealthBar ();
