@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
 	public SpriteRenderer healthImage;
 	public SpriteRenderer healthNoImage;
 
+	public AudioClip damageClip;
+
 	private float _curHealth = 0;
 	private int _curScore = 0;
 	private SpriteRenderer[] _healthImgs;
@@ -37,6 +39,9 @@ public class PlayerHealth : MonoBehaviour
 	
 	void TakeDamage (GameObject go, int helath, int score)
 	{
+		gameObject.audio.clip = this.damageClip;
+		gameObject.audio.Play();
+
 		if (_curHealth > 0) {
 			_curHealth -= helath;
 			_curScore -= score;
