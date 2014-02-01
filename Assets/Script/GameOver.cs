@@ -8,7 +8,7 @@ public class GameOver : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		score = PlayerPrefs.GetInt ("score");
-		guiText.text = "score: " + score + " m";
+		guiText.text = score + " m";
 	}
 	
 	// Update is called once per frame
