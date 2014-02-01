@@ -6,6 +6,9 @@ public class PlayerAnimationController : MonoBehaviour {
 	public GameObject Player;
 	// アニメーション用Sprite配列.
 	public Sprite[] PigSprite;
+
+	public AudioClip clip;
+
 	// Sprite制御クラス.
 	private SpriteRenderer spRender;
 
@@ -134,6 +137,9 @@ public class PlayerAnimationController : MonoBehaviour {
 
 		if ( isJump )
 		{
+			gameObject.audio.clip = this.clip;
+			gameObject.audio.Play();
+
 			nowAnimationState	= animationState.Jump;
 			animNum				= System.Convert.ToInt32( animationSeries.Jump );
 			spRender.sprite		= PigSprite[ animNum ];
