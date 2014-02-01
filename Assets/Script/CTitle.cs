@@ -20,7 +20,7 @@ public class CTitle : MonoBehaviour {
 	void OnGUI() {
 
 		Rect rect_rules = new Rect(140, 300, 150, 100);
-		bool isClicked_rules = GUI.Button(rect_rules, ButtonImageRules, "fixedWidth");
+		bool isClicked_rules = GUI.Button(rect_rules, ButtonImageRules, "");
 
 		// click rules button
 		if (isClicked_rules){
@@ -30,7 +30,7 @@ public class CTitle : MonoBehaviour {
 		}
 
 		Rect rect_start = new Rect(390, 300, 150, 100);
-		bool isClicked_start = GUI.Button(rect_start, ButtonImageLevel, "fixedWidth");
+		bool isClicked_start = GUI.Button(rect_start, ButtonImageLevel, "");
 
 		// click start button
 		if (isClicked_start){

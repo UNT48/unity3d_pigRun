@@ -18,7 +18,7 @@ public class Rules : MonoBehaviour {
 	void OnGUI(){
 
 		Rect rect = new Rect(570, 0, 80, 80);
-		bool isClicked = GUI.Button(rect, ButtonImage, "fixedWidth");
+		bool isClicked = GUI.Button(rect, ButtonImage, "");
 
 		if (isClicked){
 			// jump title
