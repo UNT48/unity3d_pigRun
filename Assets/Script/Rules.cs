@@ -17,7 +17,10 @@ public class Rules : MonoBehaviour {
 	
 	void OnGUI(){
 
-		Rect rect = new Rect(570, 0, 80, 80);
+		float sw = Screen.width;
+		float sh = Screen.height;
+
+		Rect rect = new Rect(sw * 7 / 8, 0, sw * 1 / 8, sw * 1 / 8);
 		bool isClicked = GUI.Button(rect, ButtonImage, "");
 
 		if (isClicked){

@@ -19,7 +19,10 @@ public class CTitle : MonoBehaviour {
 	// GUI描画
 	void OnGUI() {
 
-		Rect rect_rules = new Rect(140, 300, 150, 100);
+		float sw = Screen.width;
+		float sh = Screen.height;
+
+		Rect rect_rules = new Rect(sw * 1 / 8, sh * 3 / 4, sw * 1 / 4, sh * 1 / 4);
 		bool isClicked_rules = GUI.Button(rect_rules, ButtonImageRules, "");
 
 		// click rules button
@@ -29,7 +32,7 @@ public class CTitle : MonoBehaviour {
 
 		}
 
-		Rect rect_start = new Rect(390, 300, 150, 100);
+		Rect rect_start = new Rect(sw * 5 / 8, sh * 3 / 4, sw * 1 / 4, sh * 1 / 4);
 		bool isClicked_start = GUI.Button(rect_start, ButtonImageLevel, "");
 
 		// click start button
