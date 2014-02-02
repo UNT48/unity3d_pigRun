@@ -16,17 +16,18 @@ public class GOButton : MonoBehaviour {
 	}
 	// GUI描画.
 	void OnGUI() {
-		
-		//Rect rect_rules = new Rect(140, 300, 150, 100);
-		Rect rect_retry = new Rect(390, 300, 150, 100);
 
-		bool isClicked_retry = GUI.Button(rect_retry, ButtonImageRetry, "fixedWidth");
+		float sw = Screen.width;
+		float sh = Screen.height;
+
+		Rect rect_retry = new Rect(sw * 5 / 8, sh * 3 / 4, sw * 1 / 4, sh * 1 / 4);
+
+		bool isClicked_retry = GUI.Button(rect_retry, ButtonImageRetry, "");
 		
-		// click rules button
+		// click retry button.
 		if (isClicked_retry){
-			// jump rules
+			// jump title
 			Application.LoadLevel("title");
-			
 		}
 	}
 }

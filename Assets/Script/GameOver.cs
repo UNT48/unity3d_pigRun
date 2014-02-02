@@ -14,9 +14,9 @@ public class GameOver : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//to Title.
-		if (Input.GetKeyDown("space")) {
-			Application.LoadLevel("Title");
-		}
+		//if (Input.GetKeyDown("space")) {
+		//	Application.LoadLevel("Title");
+		//}
 	}
 
 }
